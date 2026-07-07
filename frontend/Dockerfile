@@ -12,11 +12,11 @@ RUN npm install --legacy-peer-deps
 # Copy the code from the host machine to the container
 COPY . .
 
-FROM dhi.io/node:24-alpine3.24
+FROM dhi.io/node:24-alpine3.24-dev
 
 WORKDIR /app
 
-ENV PATH=/app/node_modules/ .bin:$PATH
+ENV PATH=/app/node_modules/.bin:$PATH
 
 COPY --from=builder --chown=node:node /app /app 
 
